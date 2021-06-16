@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-function encode(data: any) {
+function encode(data) {
 	return Object.keys(data)
 		.map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
 		.join("&");
@@ -14,7 +14,7 @@ const FormInputs = () => {
 	} = useForm();
 	const [succes, setSucces] = React.useState(false);
 
-	const onSubmit = (data: any, e: any) => {
+	const onSubmit = (data, e) => {
 		e.preventDefault();
 		const form = e.target;
 		fetch("/", {
