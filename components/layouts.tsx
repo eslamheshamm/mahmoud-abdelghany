@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Link from "./activeLink";
+import { NavLink } from "./activeLink";
 
 const Layouts: React.FC = (props) => {
 	const { children } = props;
@@ -13,29 +13,29 @@ const Layouts: React.FC = (props) => {
 					</div>
 					<ul className="flex items-center">
 						<li>
-							<Link activeClassName="font-bold" href="/">
+							<NavLink activeClassName="font-bold" href="/">
 								<a className="font-light mr-8 text-xl">Home</a>
-							</Link>
+							</NavLink>
 						</li>
 						<li>
-							<Link activeClassName="font-bold" href="/blog">
+							<NavLink activeClassName="font-bold" href="/blog">
 								<a className="font-light mr-8 text-xl">Blog</a>
-							</Link>
+							</NavLink>
 						</li>{" "}
 						<li>
-							<Link activeClassName="font-bold" href="/fonts-in-use">
+							<NavLink activeClassName="font-bold" href="/fonts-in-use">
 								<a className="font-light mr-8 text-xl">Fonts In Use</a>
-							</Link>
+							</NavLink>
 						</li>
 						<li>
-							<Link activeClassName="font-bold" href="/typefaces">
+							<NavLink activeClassName="font-bold" href="/typefaces">
 								<a className="font-light mr-8 text-xl">Typefaces</a>
-							</Link>
+							</NavLink>
 						</li>
 						<li>
-							<Link activeClassName="font-bold" href="/about">
+							<NavLink activeClassName="font-bold" href="/about">
 								<a className="font-light text-xl">About</a>
-							</Link>
+							</NavLink>
 						</li>
 					</ul>
 				</nav>
