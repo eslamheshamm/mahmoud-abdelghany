@@ -7,7 +7,7 @@ const Layouts: React.FC = (props) => {
 	return (
 		<>
 			<header className="w-11/12 mt-12 mx-auto">
-				<nav className="flex justify-between items-center">
+				<nav className="flex justify-between items-center w-full">
 					<div>
 						<Image src="/Logo.svg" alt="logo" width={94} height={64} />
 					</div>
