@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import classNames from "classnames";
 import styles from "./form.module.css";
 import { useFormspark } from "@formspark/use-formspark";
-
+interface FormData {
+	email: string;
+}
 const FormInputs: React.FC = () => {
 	const FORMSPARK_FORM_ID = "OIc2QYhn";
 	const {
@@ -12,14 +14,17 @@ const FormInputs: React.FC = () => {
 		formState: { errors },
 	} = useForm();
 	const [succes, setSucces] = React.useState(false);
+	const [error, setError] = React.useState(null);
 	const [submit] = useFormspark({
 		formId: FORMSPARK_FORM_ID,
 	});
-	const onSubmit = async (data: any, e: any) => {
+	const onSubmit = async (data: FormData, e: any) => {
 		e.preventDefault();
-		await submit({ ...data }).then(() => {
-			setSucces(true);
-		});
+		await submit({ ...data })
+			.then(() => {
+				setSucces(true);
+			})
+			.catch((error) => setError(error));
 	};
 
 	return (
@@ -27,8 +32,6 @@ const FormInputs: React.FC = () => {
 			onSubmit={handleSubmit(onSubmit)}
 			className="flex flex-col"
 			autoComplete="off"
-			method="POST"
-			action="https://submit-form.com/OIc2QYhn"
 		>
 			<label
 				htmlFor="email"
@@ -69,12 +72,21 @@ const FormInputs: React.FC = () => {
 					/>
 				</svg>
 			</label>
-			{errors.email?.type === "required" && (
-				<span>Please Enter Your Email </span>
-			)}
-			{errors.email?.type === "pattern" && <span>Enter Valid Email </span>}
+			{error || succes
+				? null
+				: errors.email?.type === "required" && (
+						<span>Please Enter Your Email </span>
+				  )}
+			{error || succes
+				? null
+				: errors.email?.type === "pattern" && <span>Enter Valid Email </span>}
 
 			{succes && <p className="font-bold my-2">Thank You!</p>}
+			{succes
+				? null
+				: error && (
+						<p className="font-bold my-2">Sorry something wrong happened.</p>
+				  )}
 
 			<input type="submit" hidden />
 		</form>
