@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
+import classNames from "classnames";
+import styles from "./form.module.css";
 function encode(data: any) {
 	return Object.keys(data)
 		.map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -41,12 +42,12 @@ const FormInputs = () => {
 		>
 			<label
 				htmlFor="email"
-				className="font-NeueLight border-2 p-6 flex w-full items-center mt-6"
+				className={classNames(styles.Label, "font-NeueLight")}
 			>
 				<input
 					type="text"
 					id="email"
-					className="w-full focus:outline-none"
+					className={"w-full focus:outline-none"}
 					placeholder="Email@example.com"
 					{...register("email", {
 						required: true,

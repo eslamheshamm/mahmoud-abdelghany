@@ -108,7 +108,7 @@ const About = () => {
 				<h2 className=" font-NeueThin text-4xl md:text-5xl mt-4">
 					Be the first to hear about new fonts.
 				</h2>
-				<div className="md:w-10/12 lg:w-9/12">
+				<div className="md:w-10/12 lg:w-9/12 xl:w-6/12">
 					<FormInputs />
 				</div>
 			</section>
