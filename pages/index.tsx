@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 				<meta name="description" content="Mahmdoud Abd El Ghany" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<section className="w-11/12 mx-auto grid md:grid-cols-2 mt-16 pb-28 gap-4 md:mt-52">
+			<section className="w-11/12 mx-auto grid md:grid-cols-2 py-28 gap-4">
 				<article className="flex flex-col justify-center ">
 					<h1 className="font-NeueBold font-bold text-4xl md:text-5xl mb-4">
 						We’re still building this website!
