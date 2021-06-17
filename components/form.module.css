@@ -6,3 +6,9 @@
 	justify-items: center;
 	margin-top: 1.5rem;
 }
+.Input {
+	width: 100%;
+}
+.Input:focus {
+	outline: none;
+}

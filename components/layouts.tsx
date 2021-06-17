@@ -12,23 +12,23 @@ const Layouts: React.FC = (props) => {
 					<div>
 						<Image src="/Logo.svg" alt="logo" width={94} height={64} />
 					</div>
-					<ul className="flex  flex-col md:flex-row items-start md:items-center">
-						<li className="font-NeueLight mr-8 text-xl">
+					<ul className={classNames(styles.menuItems)}>
+						<li className={classNames(styles.Item, "text-xl")}>
 							<NavLink activeClassName="font-NeueBold" href="/">
 								<a>Home</a>
 							</NavLink>
 						</li>
-						<li className="font-NeueLight mr-8 text-xl">
+						<li className={classNames(styles.Item, " text-xl")}>
 							<NavLink activeClassName="font-NeueBold" href="/blog">
 								<a>Blog</a>
 							</NavLink>
 						</li>{" "}
-						<li className="font-NeueLight mr-8 text-xl">
+						<li className={classNames(styles.Item, "text-xl")}>
 							<NavLink activeClassName="font-NeueBold" href="/fonts-in-use">
 								<a>Fonts In Use</a>
 							</NavLink>
 						</li>
-						<li className="font-NeueLight mr-8 text-xl">
+						<li className={classNames(styles.Item, "text-xl")}>
 							<NavLink activeClassName="font-NeueBold" href="/typefaces">
 								<a>Typefaces</a>
 							</NavLink>

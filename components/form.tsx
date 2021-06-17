@@ -47,7 +47,7 @@ const FormInputs = () => {
 				<input
 					type="text"
 					id="email"
-					className={"w-full focus:outline-none"}
+					className={classNames(styles.Input, "w-full focus:outline-none")}
 					placeholder="Email@example.com"
 					{...register("email", {
 						required: true,
