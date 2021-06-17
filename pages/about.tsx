@@ -11,12 +11,12 @@ const About = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<section className="w-11/12 mx-auto pb-52">
-				<p className=" font-NeueBold text-6xl mt-24">
+				<p className=" font-NeueBold text-5xl md:text-6xl mt-24">
 					I create rhythm using space and <br /> proportion, and harmony with
 					light <br /> and dark, I build tension between <br /> thick and thin,
 					and unity from many <br /> parts.
 				</p>
-				<div className="grid grid-cols-2 gap-6 mt-14">
+				<div className="grid md:grid-cols-2 gap-6 mt-14">
 					<article className="font-NeueThin text-xl">
 						<p>
 							Hey, this is about Hey, a creative studio based in Barcelona since
@@ -57,9 +57,11 @@ const About = () => {
 						</p>
 					</article>
 				</div>
-				<h2 className="font-NeueBold text-5xl mt-28">Selected Clients</h2>
+				<h2 className="font-NeueBold text-4xl md:text-5xl mt-28">
+					Selected Clients
+				</h2>
 				<ul className="mt-8 flex flex-col">
-					<li className="font-NeueThin text-5xl mb-5 ">
+					<li className="font-NeueThin text-4xl md:text-5xl mb-5 ">
 						<a
 							href="http://google.com"
 							target="_blank"
@@ -69,7 +71,7 @@ const About = () => {
 							Architecture & Design
 						</a>
 					</li>
-					<li className="font-NeueThin text-5xl mb-5 ">
+					<li className="font-NeueThin text-4xl md:text-5xl mb-5 ">
 						<a
 							href="http://google.com"
 							target="_blank"
@@ -79,7 +81,7 @@ const About = () => {
 							Cultural
 						</a>
 					</li>
-					<li className="font-NeueThin text-5xl mb-5 ">
+					<li className="font-NeueThin text-4xl md:text-5xl mb-5 ">
 						<a
 							href="http://google.com"
 							target="_blank"
@@ -89,7 +91,7 @@ const About = () => {
 							Editorial
 						</a>
 					</li>
-					<li className="font-NeueThin text-5xl ">
+					<li className="font-NeueThin text-4xl md:text-5xl ">
 						<a
 							href="http://google.com"
 							target="_blank"
@@ -100,14 +102,13 @@ const About = () => {
 						</a>
 					</li>
 				</ul>
-				<h2 className="font-NeueBold text-5xl mt-24">
+				<h2 className="font-NeueBold text-4xl md:text-5xl mt-24">
 					We’re still building this website!
 				</h2>
-				<h2 className=" font-NeueThin text-5xl mt-4">
+				<h2 className=" font-NeueThin text-4xl md:text-5xl mt-4">
 					Be the first to hear about new fonts.
 				</h2>
-				<div className="w-5/12">
-					{" "}
+				<div className="md:w-10/12 lg:w-9/12">
 					<FormInputs />
 				</div>
 			</section>

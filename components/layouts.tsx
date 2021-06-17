@@ -6,35 +6,35 @@ const Layouts: React.FC = (props) => {
 	const { children } = props;
 	return (
 		<>
-			<header className="w-11/12 mt-12 mx-auto">
-				<nav className="flex justify-between items-center w-full">
+			<header className="w-11/12 py-8 md:py-12 mx-auto">
+				<nav className="flex items-baseline md:items-center justify-between w-full">
 					<div>
 						<Image src="/Logo.svg" alt="logo" width={94} height={64} />
 					</div>
-					<ul className="flex items-center">
-						<li>
+					<ul className="self-end flex flex-col md:flex-row items-start md:items-center">
+						<li className="font-light mr-8 text-xl">
 							<NavLink activeClassName="font-bold" href="/">
-								<a className="font-light mr-8 text-xl">Home</a>
+								<a>Home</a>
 							</NavLink>
 						</li>
-						<li>
+						<li className="font-light mr-8 text-xl">
 							<NavLink activeClassName="font-bold" href="/blog">
-								<a className="font-light mr-8 text-xl">Blog</a>
+								<a>Blog</a>
 							</NavLink>
 						</li>{" "}
-						<li>
+						<li className="font-light mr-8 text-xl">
 							<NavLink activeClassName="font-bold" href="/fonts-in-use">
-								<a className="font-light mr-8 text-xl">Fonts In Use</a>
+								<a>Fonts In Use</a>
 							</NavLink>
 						</li>
-						<li>
+						<li className="font-light mr-8 text-xl">
 							<NavLink activeClassName="font-bold" href="/typefaces">
-								<a className="font-light mr-8 text-xl">Typefaces</a>
+								<a>Typefaces</a>
 							</NavLink>
 						</li>
-						<li>
+						<li className="font-light text-xl">
 							<NavLink activeClassName="font-bold" href="/about">
-								<a className="font-light text-xl">About</a>
+								<a>About</a>
 							</NavLink>
 						</li>
 					</ul>

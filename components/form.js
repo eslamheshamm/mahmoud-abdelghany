@@ -5,7 +5,6 @@ function encode(data) {
 		.map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
 		.join("&");
 }
-
 const FormInputs = () => {
 	const {
 		register,
@@ -52,14 +51,15 @@ const FormInputs = () => {
 
 			<label htmlFor="email" className="font-NeueLight border p-6 flex mt-6">
 				<input
-					type="email"
-					name="email"
+					type="text"
 					id="email"
 					className="w-full focus:outline-none"
 					placeholder="Email@example.com"
 					{...register("email", {
-						required: "Please Enter Your Email",
+						required: true,
+						pattern: /^\S+@\S+$/i,
 					})}
+					disabled={succes}
 				/>
 				<svg
 					width="32"
@@ -85,7 +85,14 @@ const FormInputs = () => {
 					/>
 				</svg>
 			</label>
-			{errors.email && <span>{errors.email.message}</span>}
+			{succes
+				? null
+				: errors.email?.type === "required" && (
+						<span>Please Enter Your Email </span>
+				  )}
+			{succes
+				? null
+				: errors.email?.type === "pattern" && <span>Enter Valid Email </span>}
 
 			{succes && <p className="font-bold my-2">Thank You!</p>}
 
