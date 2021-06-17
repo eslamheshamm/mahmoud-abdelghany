@@ -2,35 +2,24 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
 import styles from "./form.module.css";
-function encode(data: any) {
-	return Object.keys(data)
-		.map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-		.join("&");
-}
-const FormInputs = () => {
+import { useFormspark } from "@formspark/use-formspark";
+
+const FormInputs: React.FC = () => {
+	const FORMSPARK_FORM_ID = "OIc2QYhn";
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
 	const [succes, setSucces] = React.useState(false);
-
-	const onSubmit = (data: any, e: any) => {
+	const [submit] = useFormspark({
+		formId: FORMSPARK_FORM_ID,
+	});
+	const onSubmit = async (data: any, e: any) => {
 		e.preventDefault();
-		const form = e.target;
-		fetch("/", {
-			method: "POST",
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: encode({
-				"form-name": form.getAttribute("name"),
-				...data,
-			}),
-		})
-			.then((res) => {
-				console.log(res);
-				setSucces(true);
-			})
-			.catch((error) => alert(error));
+		await submit({ ...data }).then(() => {
+			setSucces(true);
+		});
 	};
 
 	return (
@@ -38,7 +27,8 @@ const FormInputs = () => {
 			onSubmit={handleSubmit(onSubmit)}
 			className="flex flex-col"
 			autoComplete="off"
-			method="post"
+			method="POST"
+			action="https://submit-form.com/OIc2QYhn"
 		>
 			<label
 				htmlFor="email"
@@ -75,18 +65,14 @@ const FormInputs = () => {
 						height="30"
 						transform="matrix(0 -1 -1 0 30 30)"
 						stroke="white"
-						strokeWidth-width="2"
+						strokeWidth="2"
 					/>
 				</svg>
 			</label>
-			{succes
-				? null
-				: errors.email?.type === "required" && (
-						<span>Please Enter Your Email </span>
-				  )}
-			{succes
-				? null
-				: errors.email?.type === "pattern" && <span>Enter Valid Email </span>}
+			{errors.email?.type === "required" && (
+				<span>Please Enter Your Email </span>
+			)}
+			{errors.email?.type === "pattern" && <span>Enter Valid Email </span>}
 
 			{succes && <p className="font-bold my-2">Thank You!</p>}
 
