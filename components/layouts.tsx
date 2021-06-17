@@ -6,7 +6,7 @@ const Layouts: React.FC = (props) => {
 	const { children } = props;
 	return (
 		<>
-			<header className="w-11/12 py-8 md:py-12 mx-auto">
+			<header className="w-11/12 py-8 md:pt-12 mx-auto">
 				<nav className="flex items-baseline md:items-center justify-between w-full">
 					<div>
 						<Image src="/Logo.svg" alt="logo" width={94} height={64} />

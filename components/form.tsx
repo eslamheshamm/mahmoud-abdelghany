@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-function encode(data) {
+
+function encode(data: any) {
 	return Object.keys(data)
 		.map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
 		.join("&");
@@ -13,7 +14,7 @@ const FormInputs = () => {
 	} = useForm();
 	const [succes, setSucces] = React.useState(false);
 
-	const onSubmit = (data, e) => {
+	const onSubmit = (data: any, e: any) => {
 		e.preventDefault();
 		const form = e.target;
 		fetch("/", {
@@ -36,20 +37,12 @@ const FormInputs = () => {
 			onSubmit={handleSubmit(onSubmit)}
 			className="flex flex-col"
 			autoComplete="off"
-			name="contact"
 			method="post"
-			data-netlify="true"
-			data-netlify-honeypot="bot-field"
-			netlify="true"
 		>
-			<input type="hidden" name="form-name" value="contact" />
-			<p className="hidden">
-				<label>
-					Don’t fill this out if you’re human: <input name="bot-field" />
-				</label>
-			</p>
-
-			<label htmlFor="email" className="font-NeueLight border p-6 flex mt-6">
+			<label
+				htmlFor="email"
+				className="font-NeueLight border-2 p-6 flex w-full items-center mt-6"
+			>
 				<input
 					type="text"
 					id="email"
