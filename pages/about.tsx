@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Head from "next/dist/next-server/lib/head";
 import Layouts from "../components/layouts";
 import FormInputs from "../components/form";
+import Lottie from "lottie-react-web";
+import animation from "../animation.json";
+
 const About = () => {
+	const [spinner, setSpinner] = useState(true);
+	useEffect(() => {
+		setTimeout(() => setSpinner(false), 3800);
+	}, []);
+
+	if (spinner)
+		return (
+			<section className=" flex items-center justify-center min-h-screen">
+				<figure className="w-6/12">
+					<Lottie
+						options={{
+							animationData: animation,
+							loop: false,
+						}}
+						style={{
+							cursor: `auto`,
+						}}
+					/>
+				</figure>
+			</section>
+		);
 	return (
 		<Layouts>
 			<Head>
@@ -10,7 +34,7 @@ const About = () => {
 				<meta name="description" content="Mahmdoud Abd El Ghany" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<section className="w-11/12 mx-auto pb-52">
+			<section className="w-11/12 mx-auto pb-52 transition-opacity duration-700  ">
 				<p className=" font-NeueBold text-5xl md:text-6xl mt-24">
 					I create rhythm using space and <br /> proportion, and harmony with
 					light <br /> and dark, I build tension between <br /> thick and thin,

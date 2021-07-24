@@ -7,7 +7,7 @@ const Layouts: React.FC = (props) => {
 	const { children } = props;
 	return (
 		<>
-			<header className="w-11/12 mx-auto">
+			<header className="w-11/12 mx-auto loading">
 				<nav className={classNames(styles.navbar)}>
 					<div>
 						<Image src="/Logo.svg" alt="logo" width={94} height={64} />
@@ -41,7 +41,7 @@ const Layouts: React.FC = (props) => {
 					</ul>
 				</nav>
 			</header>
-			<main className="min-h-full">{children}</main>
+			<main className="min-h-full loading">{children}</main>
 		</>
 	);
 };
